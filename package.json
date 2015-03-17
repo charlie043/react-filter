@@ -1,6 +1,6 @@
 {
   "name": "react-filter",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "simple filter factory with react.js",
   "main": "index.js",
   "dependencies": {
