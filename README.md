@@ -57,7 +57,7 @@ offset value of bootstrap grid system
 - perfect
 
 filter perfect matching or not. default false.
-```json
+```
 {
   type        : 'text',
   placeholder : 'Address',
