@@ -1,3 +1,5 @@
+/** @jsx React.DOM */
+
 var _         = require('lodash');
 var React     = require('react');
 var Bootstrap = require('react-bootstrap');
@@ -20,7 +22,7 @@ var Col       = Bootstrap.Col;
  *
  *  }
  */
-var Filter = React.createClass({
+var Filter = React.createClass({displayName: "Filter",
 
   propTypes: {
     panel    : React.PropTypes.bool,
@@ -67,34 +69,34 @@ var Filter = React.createClass({
       var xs   = filter.xs || (type === 'date') ? 3 : 2;
       var placeholder = filter.placeholder || key;
       return (
-        <Col key={key} xs={xs}>
-          <Input
-            name={key}
-            placeholder={placeholder}
-            type={type}
-            onChange={self.onChange}
-            value={self.state.filters[key]}
-          />
-        </Col>
+        React.createElement(Col, {key: key, xs: xs}, 
+          React.createElement(Input, {
+            name: key, 
+            placeholder: placeholder, 
+            type: type, 
+            onChange: self.onChange, 
+            value: self.state.filters[key]}
+          )
+        )
       );
     });
 
     if (this.props.panel) {
       return (
-        <Panel header='Filter'>
-          <Row>
-            {filters}
-          </Row>
-        </Panel>
+        React.createElement(Panel, {header: "Filter"}, 
+          React.createElement(Row, null, 
+            filters
+          )
+        )
       );
     }
 
     return (
-      <Input wrapperClassName="wrapper">
-        <Row>
-          {filters}
-        </Row>
-      </Input>
+      React.createElement(Input, {wrapperClassName: "wrapper"}, 
+        React.createElement(Row, null, 
+          filters
+        )
+      )
     );
   }
 });

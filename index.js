@@ -1,3 +1,3 @@
-var index = require('./src/Filter.jsx');
+var index = require('./build/Filter.js');
 
 module.exports = index;
